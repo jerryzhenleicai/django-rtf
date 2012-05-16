@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>
+      Django Rich Text Editor Demo
+    </title>
+    <script type="text/javascript" src="{{MEDIA_URL}}fckeditor/fckeditor.js"></script>
+
+  </head>
+
+  <body>
+    <table>
+      <tr>
+        <td> Name: </td>
+        <td> {{ candidate.name}} </td>
+      </tr>
+      <tr>
+        <td valign="top">
+          Resume:
+        </td>
+        <td valign="top">
+          {% autoescape off %}
+          {{ candidate.resume }}
+          {% endautoescape %}
+        </td>
+      </tr>
+        <td colspan="2">
+          <a href="{% url demo.views.edit_form %}"> Edit Resume </a>
+        </td>
+      <tr>
+      </tr>
+    </table>
+
+  </body>
+</html>
+
