@@ -20,14 +20,14 @@ Usage
 =====
 Because RTF texts are stored in the database in HTML, when rendering them using the ``{{ field }}`` syntax, you need to have ``{% autoescape off %}`` around them.
 
-To prevent exploits such as cross site scripting, RichTextFields are cleaned at the server side with the excellent lxml library (http://lxml.de/) to disinfect dangerous tags like <script>. This cleaning operation is disabled when the ``ENABLE_RTF_CLEAN`` settings is set to False (as in the included demo app). Be sure to set ``ENABLE_RTF_CLEAN`` in production applications. To install lxml on Ubuntu, install the ``python-lxml`` apt package.
+To prevent exploits such as cross site scripting, RichTextFields are cleaned at the server side with the excellent lxml library (http://lxml.de/) to disinfect dangerous tags like ``<script>`` or ``iframe``. This cleaning operation is disabled when the ``ENABLE_RTF_CLEAN`` settings is set to False (as in the included demo app). Be sure to set ``ENABLE_RTF_CLEAN`` to ``True`` in production applications. To install lxml on Ubuntu, install the ``python-lxml`` apt package.
 
 
 To customize the styles of the rendered rich text, you can assign a custom class to the DIV (or SPAN) involved and use CSS !important clause (for example, ::
 
   .rich li { list-style:disc !important; }
 
-will ensure all bulletin lists in a RTF has disc style bullets.
+will ensure all bullet lists in a RTF has disc style bullets.
 
 
 If you are using Django ModelForms, You may need to tell the form to use RichTextWidget class for certain fields.
