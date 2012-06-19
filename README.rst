@@ -18,6 +18,20 @@ A demontration app is included under the demo directory, together with a SQLite3
 
 Usage
 =====
+
+In your templates, include the following two JS files::
+
+  <script type="text/javascript" src="{{MEDIA_URL}}fckeditor/fckeditor.js"></script>
+  <script type="text/javascript" src="{{MEDIA_URL}}django_rtf.js"></script>
+
+Then run these JavaScript code in the HTML page's onLoad callback::
+
+  FCKeditor.BasePath = '{{ MEDIA_URL }}fckeditor/' ;
+  toRich(document.getElementById("id_resume"));
+
+Please see the demo app file ``demo/templates/rich_edit.html`` for an example.
+
+
 Because RTF texts are stored in the database in HTML, when rendering them using the ``{{ field }}`` syntax, you need to have ``{% autoescape off %}`` around them.
 
 To prevent exploits such as cross site scripting, RichTextFields are cleaned at the server side with the excellent lxml library (http://lxml.de/) to disinfect dangerous tags like ``<script>`` or ``iframe``. This cleaning operation is disabled when the ``ENABLE_RTF_CLEAN`` settings is set to False (as in the included demo app). Be sure to set ``ENABLE_RTF_CLEAN`` to ``True`` in production applications. To install lxml on Ubuntu, install the ``python-lxml`` apt package.
