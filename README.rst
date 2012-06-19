@@ -59,12 +59,6 @@ Example ::
         }
 
 
-Dynamically Show/Hide Rich Editors
-==================================
-
-In JavaScript, calling ``showAllRichEditors()`` will show all hidden rich text editors, while ``hideAllRichEditors()`` will do the opposite.
-
-
 Read RTF value from JavaScript
 ==============================
 If you are bypassing normal HTML form submission (i.e. doing $.post() yourself), you need to read RTF values yourself::
