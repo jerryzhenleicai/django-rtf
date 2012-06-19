@@ -18,7 +18,7 @@ A demontration app is included under the demo directory, together with a SQLite3
 
 Usage
 =====
-Because RTF texts are stored in the database in HTML, when rendering them using the {{field}} syntax, you need to have {% autoescape off %} around them.
+Because RTF texts are stored in the database in HTML, when rendering them using the ``{{ field }}`` syntax, you need to have ``{% autoescape off %}`` around them.
 
 To prevent exploits such as cross site scripting, RichTextFields are cleaned at the server side with the excellent lxml library (http://lxml.de/) to disinfect dangerous tags like <script>. This cleaning operation is disabled when the ``ENABLE_RTF_CLEAN`` settings is set to False (as in the included demo app). Be sure to set ``ENABLE_RTF_CLEAN`` in production applications. To install lxml on Ubuntu, install the ``python-lxml`` apt package.
 
