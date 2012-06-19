@@ -13,7 +13,7 @@ Built on top of the open source FCKEditor, django-rtf allows you to easily turn 
 Demo App
 ========
 
-A demontration app is included under the demo directory, together with a SQLite3 database containing George Washington's resume in rich text, simply go under the ``demo`` directory and type ``python manage.py runserver`` to run the demo application.
+A demontration app is included under the demo directory, together with a SQLite3 database containing George Washington's biography in rich text, simply go under the ``demo`` directory and type ``python manage.py runserver`` to run the demo application.
 
 
 Usage
