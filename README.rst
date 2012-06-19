@@ -4,13 +4,23 @@ Django Rich Text Editor
 
 .. contents::
 
-
 Overview
 ========
 
-Built on top of the open source FCKEditor, django-rtf allows you to easily turn a plain Django TextField into a RichTextField (RTF) that's rendered with a rich text editor widget, with features such as bold text and bulleted lists. At the model level, you need to use the RichTextField class (which is derived from Django's TextField class) for those fields your want to be RTF's.  That's all there's to it if you use standard Django forms. Because RTF texts are stored in the database in HTML, when rendering them using the {{field}} syntax, you need to have {% autoescape off %} around them.
+Built on top of the open source FCKEditor, django-rtf allows you to easily turn a plain Django TextField into a RichTextField (RTF) that's rendered with a rich text editor widget, with features such as bold text and bulleted lists. At the model level, you need to use the RichTextField class (which is derived from Django's TextField class) for those fields your want to be RTF's.  That's all there's to it if you use standard Django forms.
 
-To prevent exploits such as cross site scripting, RichTextFields are cleaned at the server side with the excellent lxml library (http://lxml.de/) to disinfect dangerous tags like <script>. This cleaning operation is disabled when the ``ENABLE_RTF_CLEAN`` settings is set to False (as in the included demo app). Be sure to set ``ENABLE_RTF_CLEAN`` in production applications.
+
+Demo App
+========
+
+A demontration app is included under the demo directory, together with a SQLite3 database containing George Washington's resume in rich text, simply go under the ``demo`` directory and type ``python manage.py runserver`` to run the demo application.
+
+
+Usage
+=====
+Because RTF texts are stored in the database in HTML, when rendering them using the {{field}} syntax, you need to have {% autoescape off %} around them.
+
+To prevent exploits such as cross site scripting, RichTextFields are cleaned at the server side with the excellent lxml library (http://lxml.de/) to disinfect dangerous tags like <script>. This cleaning operation is disabled when the ``ENABLE_RTF_CLEAN`` settings is set to False (as in the included demo app). Be sure to set ``ENABLE_RTF_CLEAN`` in production applications. To install lxml on Ubuntu, install the ``python-lxml`` apt package.
 
 
 To customize the styles of the rendered rich text, you can assign a custom class to the DIV (or SPAN) involved and use CSS !important clause (for example, ::
@@ -34,11 +44,6 @@ Example ::
             'content': RichTextWidget,
         }
 
-
-Demo App
-========
-
-A demontration app is included under the demo directory, together with a SQLite3 database containing George Washington's resume in rich text, simply type ``python manage.py runserver`` to run the demo application.
 
 Dynamically Show/Hide Rich Editors
 ==================================
