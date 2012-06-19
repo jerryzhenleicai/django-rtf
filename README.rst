@@ -27,7 +27,7 @@ In your templates, include the following two JS files::
 Then run these JavaScript code in the HTML page's onLoad callback::
 
   FCKeditor.BasePath = '{{ MEDIA_URL }}fckeditor/' ;
-  toRich(document.getElementById("id_resume"));
+  toRich(document.getElementById("<id of the textarea to turn into Rich text field>"));
 
 Please see the demo app file ``demo/templates/rich_edit.html`` for an example.
 
